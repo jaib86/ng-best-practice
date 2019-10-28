@@ -1,0 +1,60 @@
+<h2>Template-driven Form</h2>
+<form #f="ngForm">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" name="username" autocomplete="username"
+           ngModel #username="ngModel" required uniqueUsername />
+    <div class="text-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+      <div *ngIf="username.errors['required']">Username is required</div>
+      <div *ngIf="username.errors['uniqueUsername']">Username already exists</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Password</label>
+    <input type="email" class="form-control" name="email" autocomplete="email"
+           ngModel #email="ngModel" required uniqueEmail />
+    <div class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors['required']">Email is required</div>
+      <div *ngIf="email.errors['uniqueEmail']">Email already exists</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="emailCnf">Confirm Password</label>
+    <input type="password" class="form-control" name="emailCnf" autocomplete="email"
+           ngModel #emailC="ngModel" required compare="email" />
+    <div class="text-danger" *ngIf="emailC.invalid && (emailC.dirty || emailC.touched)">
+      <div *ngIf="emailC.errors['required']">Confirm Email is required</div>
+      <div *ngIf="emailC.errors['compare']">Confirm Email do not match</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" autocomplete="new-password"
+           ngModel #password="ngModel" required />
+    <div class="text-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+      Password is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="pwdCnf">Confirm Password</label>
+    <input type="password" class="form-control" name="pwdCnf" autocomplete="new-password"
+           ngModel #pwc="ngModel" required compare="password" />
+    <div class="text-danger" *ngIf="pwc.invalid && (pwc.dirty || pwc.touched)">
+      <div *ngIf="pwc.errors['required']">Confirm Password is required</div>
+      <div *ngIf="pwc.errors['compare']">Confirm Password do not match</div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+</form>
+<br />
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Form status: {{ f.status }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Form Value</h6>
+    <pre>{{ f.value | json }}</pre>
+  </div>
+</div>
+
+

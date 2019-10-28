@@ -1,0 +1,37 @@
+<div class="jumbotron">
+  <h1 class="display-4">Hello, world!</h1>
+  <p class="lead">
+    Welcome to IT World, a sample jumbotron-style component for calling extra attention to featured
+    content or information.
+  </p>
+  <hr class="my-4" />
+  <p>
+    It uses utility classes for typography and spacing to space content out within the larger
+    container.
+  </p>
+  <a class="btn btn-primary btn-lg" routerLink="/demo" role="button">Learn More</a>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Angular CLI Generate</h5>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr class="thead-dark">
+            <th>Scaffold</th>
+            <th>Usage</th>
+            <th>Alias</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cliGenerator">
+            <td>{{ item.Scaffold }}</td>
+            <td style="font-family: Consolas;">{{ item.Usage }}</td>
+            <td style="font-family: Consolas;">{{ item.Alias }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
