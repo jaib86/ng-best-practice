@@ -11,7 +11,7 @@ import { GlobalErrorHandler } from './global-error-handler.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NgbModule.forRoot()],
+  imports: [CommonModule, RouterModule, NgbModule],
   declarations: [
     HomeComponent,
     NavMenuComponent,
